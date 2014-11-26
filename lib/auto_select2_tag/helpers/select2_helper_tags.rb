@@ -2,7 +2,6 @@ module AutoSelect2Tag
   module Select2HelperTags
 
     def select2_tag(name, option_tags = nil, options = {})
-      static_select2_init_header_tags
       options[:class] = [options[:class], 'auto-static-select2'].compact.join(' ')
       select2_options = options.delete(:select2_options)
       if select2_options.present?
@@ -12,7 +11,6 @@ module AutoSelect2Tag
     end
 
     def select2_ajax_tag(name, select2_searcher, value = nil, options={})
-      ajax_select2_init_header_tags
       limit = options.delete(:limit)
       original_classes = options.delete(:class)
       original_data = options.delete(:data) || {}
