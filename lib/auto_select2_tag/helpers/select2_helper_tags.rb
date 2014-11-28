@@ -26,6 +26,7 @@ module AutoSelect2Tag
           class: classes,
           data: original_data.merge(
               { href: select2_autocompletes_path(controller_params),
+                # TODO: move limit to config or delegate to SearchAdapter
                 limit: limit.present? ? limit : 25 }
           )
       }

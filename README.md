@@ -15,6 +15,10 @@ And execute:
 
     $ bundle
 
+## Example
+
+You can find example project [here](https://github.com/Loriowar/auto-select2_tag_example).
+
 ## Usage
 
 Gem provide only two helper methods for initialize select2 elements:
