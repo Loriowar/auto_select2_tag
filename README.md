@@ -51,10 +51,13 @@ you can specify `:select2_options` in options. This parameter allow to set selec
     select2_ajax_tag(name, select2_searcher, value = nil, options = {})
 
 All allowed options for this helper can be found on
-[AutoSelect2](https://github.com/Loriowar/auto_select2#installation) page. look at example
+[AutoSelect2](https://github.com/Loriowar/auto_select2#ajax-select2-usage) page. look at example
 below; this is an easy way to understand helper parameters.
 
 #### Example of usage select2_ajax_tag
+
+If you define [SearchAdapter](https://github.com/Loriowar/auto_select2#example-of-minimalistic-searchadapter)
+named `MySearchAdapterName`, you can use the follow code:
 
     = select2_ajax_tag :my_select2_name,
                        :my_search_adapter_name,
@@ -63,6 +66,15 @@ below; this is an easy way to understand helper parameters.
                        search_method: :unusual_case,
                        class: 'my-select2-input',
                        select2_options: {additional_ajax_data: {selector: '.additional-elements'}}
+
+If you want lightweight selection over columns of `ActiveRecord` model:
+
+    = select2_ajax_tag :my_select2_name,
+                       {class_name: :your_model_name, text_column: :name, id_column: :id},
+                       my_init_value_id,
+                       placeholder: 'Fill me now!'
+
+In this case you get select2 selent with search by `name` column over model `YourModelName`.
 
 ## Contributing
 
