@@ -24,6 +24,7 @@ module AutoSelect2Tag
         controller_params[:default_class_name] = select2_searcher[:class_name] if select2_searcher[:class_name].present?
         controller_params[:default_text_column] = select2_searcher[:text_column] if select2_searcher[:text_column].present?
         controller_params[:default_id_column] = select2_searcher[:id_column] if select2_searcher[:id_column].present?
+        controller_params[:hash_method] = select2_searcher[:hash_method] if select2_searcher[:hash_method].present?
       else
         controller_params[:class_name] = select2_searcher
       end
