@@ -34,9 +34,9 @@ module AutoSelect2Tag
       hidden_field_system_options = {
           class: classes,
           data: original_data.merge(
-              { href: select2_autocompletes_path(controller_params),
-                # TODO: move limit to config or delegate to SearchAdapter
-                limit: limit.present? ? limit : 25 }
+              { s2_href: select2_autocompletes_path(controller_params),
+                # TODO: move s2limit to config or delegate to SearchAdapter
+                s2_limit: limit.present? ? limit : 25 }
           )
       }
       hidden_field_options = hidden_field_system_options.merge(options)
