@@ -5,7 +5,7 @@ module AutoSelect2Tag
       options[:class] = [options[:class], 'auto-static-select2'].compact.join(' ')
       select2_options = options.delete(:select2_options)
       if select2_options.present?
-        options[:data] = (options[:data] || {}).merge('s2options' => select2_options)
+        options[:data] = (options[:data] || {}).merge('s2-options' => select2_options)
       end
       select_tag(name, option_tags, options)
     end
@@ -15,7 +15,7 @@ module AutoSelect2Tag
       original_classes = options.delete(:class)
       original_data = options.delete(:data) || {}
       select2_options = options.delete(:select2_options)
-      original_data.merge!('s2options' => select2_options) if select2_options.present?
+      original_data.merge!('s2-options' => select2_options) if select2_options.present?
       search_method = options.delete(:search_method)
       classes = ['auto-ajax-select2', original_classes].compact.join(' ')
       controller_params = {}
