@@ -43,5 +43,25 @@ module AutoSelect2Tag
       hidden_field_tag(name, value, hidden_field_options)
     end
 
+    def select2_data_tag(name, value = nil, options={})
+      original_classes = options.delete(:class)
+      classes = ['auto-data-select2', original_classes].compact.join(' ')
+
+      original_data = options.delete(:data) || {}
+      select2_options = options.delete(:select2_options)
+      original_data.merge!('s2-options' => select2_options) if select2_options.present?
+      hidden_field_system_options = {
+          class: classes,
+          data: original_data.merge(
+              {
+                  s2_data: options.delete(:s2_data),
+                  s2_format_result: options.delete(:s2_format_result),
+                  s2_format_selection: options.delete(:s2_format_selection)
+              }
+          )
+      }
+      hidden_field_options = hidden_field_system_options.merge(options)
+      hidden_field_tag(name, value, hidden_field_options)
+    end
   end
 end
