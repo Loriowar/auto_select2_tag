@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'auto_select2_tag'
   spec.version       = AutoSelect2Tag::VERSION
   spec.authors       = ["Dmitriy Lisichkin", "Ivan Zabrovskiy"]
-  spec.email         = ["dima@sb42.ru", "lorowar@gmail.com"]
+  spec.email         = ["dima@sb42.ru", "loriowar@gmail.com"]
   spec.summary       = %q{Provide tag-helper methods for create Select2 elements by the same way as any other elements}
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/Loriowar/auto_select2_tag"
