@@ -1,11 +1,15 @@
 module AutoSelect2Tag
   module Select2HelperTags
-
     def select2_tag(name, option_tags = nil, options = {})
-      options[:class] = [options[:class], 'auto-static-select2'].compact.join(' ')
-      select2_options = options.delete(:select2_options)
-      if select2_options.present?
-        options[:data] = (options[:data] || {}).merge('s2-options' => select2_options)
+      options[:class] = [options[:class], 'auto-select2 auto-select2-static'].compact.join(' ')
+      auto_select2_options = options.delete(:auto_select2)
+      if option_tags.include?('<option></option>') || options[:include_blank]
+        auto_select2_options ||= {}
+        auto_select2_options[:allowClear] ||= true
+        auto_select2_options[:placeholder] ||= ''
+      end
+      if auto_select2_options.present?
+        options[:data] = (options[:data] || {}).merge(auto_select2: auto_select2_options)
       end
       select_tag(name, option_tags, options)
     end
